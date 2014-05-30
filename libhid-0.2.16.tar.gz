@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html SYSTEM "http://evolvis.org/DTD/xhtml10t-rdfa10.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:doap="http://usefulinc.com/ns/doap#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:planetforge="http://coclico-project.org/ontology/planetforge#" xmlns:sioc="http://rdfs.org/sioc/ns#">
+			<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Alioth: Login</title><link rel="icon" type="image/png" href="https://alioth.debian.org/images/icon.png" /><link rel="shortcut icon" type="image/png" href="https://alioth.debian.org/images/icon.png" />
+				<link rel="alternate" title="Alioth - Project News Highlights RSS" href="https://alioth.debian.org/export/rss_sfnews.php" type="application/rss+xml"/>
+				<link rel="alternate" title="Alioth - Project News Highlights RSS 2.0" href="https://alioth.debian.org/export/rss20_news.php" type="application/rss+xml"/>
+				<link rel="alternate" title="Alioth - New Projects RSS" href="https://alioth.debian.org/export/rss_sfprojects.php" type="application/rss+xml"/>
+				<link rel="alternate" title="Alioth - New Activity RSS" href="https://alioth.debian.org/export/rss20_activity.php?group_id=0" type="application/rss+xml"/><link rel="search" title="Alioth" href="https://alioth.debian.org/export/search_plugin.php" type="application/opensearchdescription+xml"/>
+			<link rel="stylesheet" type="text/css" href="/scripts/yui3/cssgrids-base/cssgrids-base.css"/>
+			<link rel="stylesheet" type="text/css" href="/scripts/yui3/cssbase/cssbase.css"/>
+			<link rel="stylesheet" type="text/css" href="/scripts/yui3/yui-base/yui-base.css"/>
+			<link rel="stylesheet" type="text/css" href="/themes/css/fusionforge.css?1366812755"/>
+			<link rel="stylesheet" type="text/css" href="/themes/gforge/css/theme.css?1366812755"/>
+			<link rel="stylesheet" type="text/css" href="/themes/gforge/css/theme-pages.css?1366812755"/>
+
+			<script type="text/javascript" src="/scripts/prototype/prototype.js"></script>
+			<script type="text/javascript" src="/scripts/scriptaculous/scriptaculous.js"></script>
+			<script type="text/javascript" src="/scripts/codendi/Tooltip.js"></script>
+			<script type="text/javascript" src="/scripts/codendi/LayoutManager.js"></script>
+			<script type="text/javascript" src="/scripts/codendi/ReorderColumns.js"></script>
+			<script type="text/javascript" src="/scripts/codendi/codendi-1236793993.js"></script>
+			<script type="text/javascript" src="/scripts/codendi/validate.js"></script>
+			<script type="text/javascript" src="/js/common.js"></script>
+			<script language="JavaScript" type="text/javascript">/* <![CDATA[ */
+			/* ]]> */</script>			<script type="text/javascript" src="/tabber/tabber.js?1366812755"></script>
+			<meta name="Forge-Identification" content="FusionForge:5.2.3+20130110-1+alioth1" />
+			</head>
+					<body>
+			
+			<table id="header" class="width-100p100">
+				<tr>
+					<td id="header-col1"><a href="/"><img src="https://alioth.debian.org/themes/gforge/images/header/top-logo.png" alt="FusionForge Home" width="192" height="54" /></a></td>
+					<td id="header-col2"><form id="searchBox" action="/search/" method="get">
+			<div><select name="type_of_search"><option value="soft">Project</option>
+<option value="people">People</option>
+<option value="alldocs">Documents</option>
+<option value="skill">Skill</option>
+</select><input type="hidden" value="0" name="group_id" />
+<input type="text" size="12" id="searchBox-words" name="words" value="" />
+<input type="submit" name="Search" value="Search" />
+</div></form>
+					</td>
+					<td id="header-col3">
+			<a class="userlink" href="/account/login.php?return_to=%2Faccount%2Flogin.php%3Ftriggered%3D1%26return_to%3D%252Ffrs%252Fdownload.php%252Ffile%252F1958%252Flibhid-0.2.16.tar.gz">Log In</a> | <a class="userlink" href="/account/register.php">New Account</a>
+					</td>
+				</tr>
+			</table>
+
+			<!-- outer tabs -->
+			
+		<!-- start tabs -->
+		<table class="tabGenerator width-100p100" summary="" >
+<tr>
+<td class="tg-left">
+<div><div>
+</div></div>
+</td>
+<td class="tg-middle" style="width:20%;">
+<div><div>
+<a  title="Main Page" href="/">Home</a>
+</div></div>
+</td>
+
+<td class="tg-left">
+<div class="selected"><div>
+</div></div>
+</td>
+<td class="tg-middle" style="width:20%;">
+<div class="selected"><div>
+<a  title="Your Page, widgets selected by you to follow your items." href="/my/">My Page</a>
+</div></div>
+</td>
+<td class="tg-right">
+<div class="selected"><div>
+</div></div>
+</td>
+
+<td class="tg-left">
+<div><div>
+</div></div>
+</td>
+<td class="tg-middle" style="width:20%;">
+<div><div>
+<a  title="Map of projects, by categories or types." href="/softwaremap/">Projects</a>
+</div></div>
+</td>
+<td class="tg-right">
+<div><div>
+</div></div>
+</td>
+
+<td class="tg-left">
+<div><div>
+</div></div>
+</td>
+<td class="tg-middle" style="width:20%;">
+<div><div>
+<a  title="Tooling library. Small coding tips." href="/snippet/">Code Snippets</a>
+</div></div>
+</td>
+<td class="tg-right">
+<div><div>
+</div></div>
+</td>
+
+<td class="tg-left">
+<div><div>
+</div></div>
+</td>
+<td class="tg-middle" style="width:20%;">
+<div><div>
+<a  title="Hiring Market Place." href="/people/">Project Openings</a>
+</div></div>
+</td>
+<td class="tg-right">
+<div><div>
+</div></div>
+</td>
+</tr>
+	</table>
+	<!-- end tabs --><!-- inner tabs -->
+<div id="maindiv">
+<h1>Login</h1><p><div class="warning">You've been redirected to this login page because you have tried accessing a page that was not available to you as an anonymous user.</div> </p><p>Cookies must be enabled past this point.</p><form action="https://alioth.debian.org/plugins/authbuiltin/post-login.php" method="post">
+<input type="hidden" name="form_key" value="0859d6330207daaced7f641985517751"/>
+<input type="hidden" name="return_to" value="/frs/download.php/file/1958/libhid-0.2.16.tar.gz" />
+<p>Login name:<br /><input type="text" name="form_loginname" value="" /></p><p>Password:<br /><input type="password" name="form_pw" /></p><p><input type="submit" name="login" value="Login" />
+</p>
+</form><p><a href="/account/lostpw.php">[Lost your password?]</a></p><p><a href="/account/register.php">[New Account]</a></p><p><a href="/account/pending-resend.php">[Resend confirmation email to a pending account]</a></p></div><!-- id="maindiv" -->
+
+			<!-- PLEASE LEAVE "Powered By FusionForge" on your site -->
+			<div class="align-right">
+                       <a href="http://fusionforge.org/"><img src="/images/pow-fusionforge.png" alt="Powered By FusionForge" /></a><br />
+                       
+			</div>
+			
+		</body>
+		</html>
+		
