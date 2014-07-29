@@ -114,6 +114,31 @@ int main (int argc, char **argv)
  * inches, etc*/
   float raw_meas, calc_meas;
 
+  //calculated values from linear fit of chart mapping inches to liters
+  //R^2=0.9993
+
+  float m[8]={
+	1,	//channel 0
+	5.025,	//channel 1, 100LD
+	1,	//channel 2
+	1,	//channel 3
+	1,      //channel 4
+	1,      //channel 5
+	1,      //channel 6
+	1	//channel 7
+  };
+
+  float b[8]={
+	0,	//channel 0
+	-5.825,	//channel 1, 100LD
+	0,	//channel 2
+	0,	//channel 3
+	0,      //channel 4
+	0,      //channel 5
+	0,      //channel 6
+	0	//channel 7
+  };
+
   /*will hold the final query*/
   char buffer[1000];
 
@@ -137,7 +162,7 @@ int main (int argc, char **argv)
 
 		//get values for database
 		raw_meas=volts_USB1608G(udev,gain,value);
-		calc_meas=raw_meas;
+		calc_meas=m[i]*raw_meas+b[i];
 
 		//printf("Channel %d  Mode = %#x  Gain = %d Sample[%d] = %#x Volts = %lf\n",list[0].channel, list[0].mode, list[0].range, i, value, raw_meas);
 
