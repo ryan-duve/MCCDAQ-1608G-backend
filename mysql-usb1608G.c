@@ -17,6 +17,15 @@
 
 #define MAX_COUNT     (0xffff)
 
+/*
+TO SOLVE ERROR
+USB device already bound to driver: usbfs
+
+type command `usb-devices` and find the 1608G bus/device number.  Then execute
+`lsof /dev/bus/usb/AAA/BBB` where AAA=bus# and BBB=dev#.  Finally, kill the PID
+and retry.
+*/
+
 /* Test Program */
 int toContinue()
 {
@@ -45,6 +54,29 @@ char *getPassword(char *password){
 	fclose(pFile);
 
 	return password;
+}
+
+float alcatelASM120H(float raw){
+	//ASM120H has a piecewise, exponential mapping from voltage to leak rate
+	//see ASM120H manual (Hifrost Collab site), page 3.10
+	//300 mV - 600 mV
+	//600 mV - 1 V
+	//1 V - 2 V
+	//2 V - 8 V
+
+	if(raw>8){
+		return 1;
+	}else if(raw>2){
+		return pow(10.0,(raw-9));
+	}else if(raw>1){
+		return pow(10.0,(1.02228*raw-9.04455));
+	}else if(raw>0.6){
+		return pow(10.0,(1.53999*raw-9.56227));
+	}else if(raw>0.3){
+		return pow(10.0,(1.20576*raw-9.36173));
+	}else{
+		return 0;
+	}
 }
 
 
@@ -104,7 +136,7 @@ int main (int argc, char **argv)
   deviceMap[0]="";
   deviceMap[1]="100ldlevel";
   deviceMap[2]="";
-  deviceMap[3]="";
+  deviceMap[3]="alcatelASM120H";
   deviceMap[4]="";
   deviceMap[5]="";
   deviceMap[6]="";
@@ -114,7 +146,7 @@ int main (int argc, char **argv)
   channel_activated[0]=0;
   channel_activated[1]=1;
   channel_activated[2]=0;
-  channel_activated[3]=0;
+  channel_activated[3]=1;
   channel_activated[4]=0;
   channel_activated[5]=0;
   channel_activated[6]=0;
@@ -174,6 +206,11 @@ int main (int argc, char **argv)
 		//get values for database
 		raw_meas=volts_USB1608G(udev,gain,value);
 		calc_meas=m[i]*raw_meas+b[i];
+
+		//the Alcatel leak detector has a piecewise log fit
+		if(i==3){
+			calc_meas=alcatelASM120H(raw_meas);
+		}
 
 		//printf("Channel %d  Mode = %#x  Gain = %d Sample[%d] = %#x Volts = %lf\n",list[0].channel, list[0].mode, list[0].range, i, value, raw_meas);
 
