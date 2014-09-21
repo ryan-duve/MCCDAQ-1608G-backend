@@ -98,16 +98,27 @@ int main (int argc, char **argv)
 
   //set to 1 to turn channel monitoring on
   int channel_activated[8]={0};
+
+  //associate channel to device
+  const char *deviceMap[8];
+  deviceMap[0]="";
+  deviceMap[1]="100ldlevel";
+  deviceMap[2]="";
+  deviceMap[3]="";
+  deviceMap[4]="";
+  deviceMap[5]="";
+  deviceMap[6]="";
+  deviceMap[7]="";
  
   //activate channels
-  channel_activated[0]=1;
+  channel_activated[0]=0;
   channel_activated[1]=1;
-  channel_activated[2]=1;
-  channel_activated[3]=1;
-  channel_activated[4]=1;
-  channel_activated[5]=1;
-  channel_activated[6]=1;
-  channel_activated[7]=1;
+  channel_activated[2]=0;
+  channel_activated[3]=0;
+  channel_activated[4]=0;
+  channel_activated[5]=0;
+  channel_activated[6]=0;
+  channel_activated[7]=0;
 
   /*raw_meas is what the ADC sees in volts; calc_meas will multiple the voltage
  * by necessary constants to get measurement value in Kelvin, liters/second,
@@ -144,7 +155,7 @@ int main (int argc, char **argv)
 
   do {
 	//base query
-	char query[] ="INSERT INTO usb1608g (device, raw_reading, measurement_reading) VALUES";
+	char query[] ="INSERT INTO slowcontrolreadings (device, raw_reading, measurement_reading) VALUES";
 
 	for(i=0;i<8;++i){
 		//skip this channel if not activated
@@ -167,7 +178,7 @@ int main (int argc, char **argv)
 		//printf("Channel %d  Mode = %#x  Gain = %d Sample[%d] = %#x Volts = %lf\n",list[0].channel, list[0].mode, list[0].range, i, value, raw_meas);
 
 		//complete the query with values
-		snprintf(buffer, sizeof buffer, "%s('d%d','%1f','%1f')",query,i, raw_meas,calc_meas);
+		snprintf(buffer, sizeof buffer, "%s('%s','%1f','%1f')",query,deviceMap[i], raw_meas,calc_meas);
 
 		//add to db
 		if (mysql_query(con,buffer)) {
