@@ -1,3 +1,4 @@
 libmcchid*
 password
 *.o
+*swp
