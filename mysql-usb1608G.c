@@ -144,9 +144,9 @@ int main (int argc, char **argv)
  
   //activate channels
   channel_activated[0]=0;
-  channel_activated[1]=0;
+  channel_activated[1]=1;
   channel_activated[2]=0;
-  channel_activated[3]=1;
+  channel_activated[3]=0;
   channel_activated[4]=0;
   channel_activated[5]=0;
   channel_activated[6]=0;
@@ -187,7 +187,7 @@ int main (int argc, char **argv)
 
   do {
 	//base query
-	char query[] ="INSERT INTO alcatelasm120h (device, raw_reading, measurement_reading) VALUES";
+	char query[] ="INSERT INTO slowcontrolreadings (device, raw_reading, measurement_reading) VALUES";
 
 	for(i=0;i<8;++i){
 		//skip this channel if not activated
@@ -215,10 +215,10 @@ int main (int argc, char **argv)
 		//printf("Channel %d  Mode = %#x  Gain = %d Sample[%d] = %#x Volts = %lf\n",list[0].channel, list[0].mode, list[0].range, i, value, raw_meas);
 
 		//complete the query with values
-		//snprintf(buffer, sizeof buffer, "%s('%s','%1f','%1f')",query,deviceMap[i], raw_meas,calc_meas);
+		snprintf(buffer, sizeof buffer, "%s('%s','%1f','%1f')",query,deviceMap[i], raw_meas,calc_meas);
 
 		//alcatel uses 10 sig figs
-		snprintf(buffer, sizeof buffer, "%s('%s','%1f','%11.10f')",query,deviceMap[i], raw_meas,calc_meas);
+		//snprintf(buffer, sizeof buffer, "%s('%s','%1f','%11.10f')",query,deviceMap[i], raw_meas,calc_meas);
 
 		//add to db
 		if (mysql_query(con,buffer)) {
