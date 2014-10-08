@@ -162,7 +162,7 @@ int main (int argc, char **argv)
 
   float m[8]={
 	1,	//channel 0
-	5.025,	//channel 1, 100LD
+	502.5,	//channel 1, 100LD
 	1,	//channel 2
 	1,	//channel 3
 	1,      //channel 4
