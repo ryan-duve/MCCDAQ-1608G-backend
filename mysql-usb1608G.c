@@ -135,7 +135,7 @@ int main (int argc, char **argv)
   const char *deviceMap[8];
   deviceMap[0]="";
   deviceMap[1]="100ldlevel";
-  deviceMap[2]="";
+  deviceMap[2]="avs47";
   deviceMap[3]="alcatelASM120H";
   deviceMap[4]="";
   deviceMap[5]="";
@@ -145,7 +145,7 @@ int main (int argc, char **argv)
   //activate channels
   channel_activated[0]=0;
   channel_activated[1]=1;
-  channel_activated[2]=0;
+  channel_activated[2]=1;
   channel_activated[3]=0;
   channel_activated[4]=0;
   channel_activated[5]=0;
