@@ -59,7 +59,7 @@ char *getPassword(char *password){
 //special fit for ROX
 float avs47(float raw){
 	//raw is in kohms, so multiply by 1000 to get ohms
-	raw=raw*1000.;
+	raw=raw*10000.;
 
 	//ROX fits R(T)=a*exp[b/T^c] per DPK
 	//gnuplot fit to lakeshore data calibration table yields:
