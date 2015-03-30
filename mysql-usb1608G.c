@@ -159,24 +159,24 @@ int main (int argc, char **argv)
 
   //associate channel to device
   const char *deviceMap[8];
-  deviceMap[0]="";
+  deviceMap[0]="dev0";
   deviceMap[1]="100ldlevel";
   deviceMap[2]="avs47";
   deviceMap[3]="alcatelASM120H";
-  deviceMap[4]="";
-  deviceMap[5]="";
-  deviceMap[6]="";
-  deviceMap[7]="";
+  deviceMap[4]="dev4";
+  deviceMap[5]="dev5";
+  deviceMap[6]="dev6";
+  deviceMap[7]="dev7";
  
   //activate channels
-  channel_activated[0]=0;
+  channel_activated[0]=1;
   channel_activated[1]=1;
   channel_activated[2]=1;
-  channel_activated[3]=0;
-  channel_activated[4]=0;
-  channel_activated[5]=0;
-  channel_activated[6]=0;
-  channel_activated[7]=0;
+  channel_activated[3]=1;
+  channel_activated[4]=1;
+  channel_activated[5]=1;
+  channel_activated[6]=1;
+  channel_activated[7]=1;
 
   /*raw_meas is what the ADC sees in volts; calc_meas will multiple the voltage
  * by necessary constants to get measurement value in Kelvin, liters/second,
