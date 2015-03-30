@@ -58,7 +58,7 @@ char *getPassword(char *password){
 
 //special fit for ROX
 float avs47(float raw){
-	//raw is in kohms, so multiply by 1000 to get ohms
+	//raw is in 0.1*kohms, so multiply by 10000 to get ohms
 	raw=raw*10000.;
 
 	//ROX fits R(T)=a*exp[b/T^c] per DPK
