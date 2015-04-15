@@ -169,14 +169,14 @@ int main (int argc, char **argv)
   deviceMap[7]="dev7";
  
   //activate channels
-  channel_activated[0]=1;
+  channel_activated[0]=0;
   channel_activated[1]=1;
   channel_activated[2]=1;
   channel_activated[3]=1;
-  channel_activated[4]=1;
-  channel_activated[5]=1;
-  channel_activated[6]=1;
-  channel_activated[7]=1;
+  channel_activated[4]=0;
+  channel_activated[5]=0;
+  channel_activated[6]=0;
+  channel_activated[7]=0;
 
   /*raw_meas is what the ADC sees in volts; calc_meas will multiple the voltage
  * by necessary constants to get measurement value in Kelvin, liters/second,
