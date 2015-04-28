@@ -10,6 +10,7 @@
 
 #include "pmd.h"
 #include "usb-1608G.h"
+#include "interpolation.h"
 
 //mysql libraries
 #include <my_global.h>
@@ -57,30 +58,30 @@ char *getPassword(char *password){
 }
 
 //special fit for ROX
-float avs47(float raw){
-	//raw is in 0.1*kohms, so multiply by 10000 to get ohms
-	raw=raw*10000.;
-
-	//ROX fits R(T)=a*exp[b/T^c] per DPK
-	//gnuplot fit to lakeshore data calibration table yields:
-	//
-	// Final set of parameters            Asymptotic Standard Error
-	// =======================            ==========================
-	// 
-	// a               = 978.546          +/- 9.006        (0.9203%)
-	// b               = 0.624656         +/- 0.009262     (1.483%)
-	// c               = 0.276403         +/- 0.002658     (0.9617%)
-	//
-	//therefore, T(R) is (where R is in ohms)
-	//T = 0.182242/ln(0.00102192 * R)^3.617905739083874
-
-	if(raw>0){
-		return 0.182242/pow(log(0.00102192 * raw),3.617905739);
-	}else{
-		//don't know why this would happen, maybe if the AVS is off?
-		return raw;
-	}
-}
+//float avs47(float raw){
+//	//raw is in 0.1*kohms, so multiply by 10000 to get ohms
+//	raw=raw*10000.;
+//
+//	//ROX fits R(T)=a*exp[b/T^c] per DPK
+//	//gnuplot fit to lakeshore data calibration table yields:
+//	//
+//	// Final set of parameters            Asymptotic Standard Error
+//	// =======================            ==========================
+//	// 
+//	// a               = 978.546          +/- 9.006        (0.9203%)
+//	// b               = 0.624656         +/- 0.009262     (1.483%)
+//	// c               = 0.276403         +/- 0.002658     (0.9617%)
+//	//
+//	//therefore, T(R) is (where R is in ohms)
+//	//T = 0.182242/ln(0.00102192 * R)^3.617905739083874
+//
+//	if(raw>0){
+//		return 0.182242/pow(log(0.00102192 * raw),3.617905739);
+//	}else{
+//		//don't know why this would happen, maybe if the AVS is off?
+//		return raw;
+//	}
+//}
 
 float alcatelASM120H(float raw){
 	//ASM120H has a piecewise, exponential mapping from voltage to leak rate
