@@ -1,5 +1,11 @@
 #include<stdio.h>
 //interpolate.h
+//Calibrated ROX came with 88 (R,T) datapoints that do not fit nicely on a
+//curve.  interpolate takes a resistance parameter, finds the closest datapoint
+//(to the left), and looks up the corresponding slope/intercept for the line
+//y=mx*b, where x is in ohms and T in Kelvin, that connects the nearest left
+//and right datapoints.  The resistance parameter is plugged into that formul
+//and the resulting temperature sent back to the main DAQ program.
 
 //return interpolated value
 long double interpolate(long double x, long double mxb[][3], unsigned long int nMxb){
@@ -7,7 +13,7 @@ long double interpolate(long double x, long double mxb[][3], unsigned long int n
   if(x<mxb[0][0] || x>mxb[nMxb-1][0])
     return 0;
 
-  //find the region boundary to the left of x
+  //find the "region" boundary to the left of x
   int lowerXBoundaryIndex=0;
   while(x>=mxb[lowerXBoundaryIndex+1][0]) //lowerXBoundaryIndex+1 = upper bound index
     lowerXBoundaryIndex++;
@@ -19,9 +25,13 @@ long double interpolate(long double x, long double mxb[][3], unsigned long int n
   return m*x+b;
 }
 
+//take resistance in ohms, call interpolate() and return a temperature in K
 float avs47(float resistance){
-  //set slope/intercepts for y=mx+b fit for every set of calibrated points
-  //{<min resistance range>, <slope>, <intercept>}
+  //resistiance is in 0.1*kohms, so multiply by 10000 to get ohms
+	resistance=resistance*10000.;
+
+	//slope/intercepts (y=mx+b) for every set of calibrated points
+	//{<min resistance range>, <slope>, <intercept>}
   long double mxb[][3]={
     {1.15866529715041E+03,-3.403151e-01,4.393414e+02},
     {1.16746663791400E+03,-3.085394e-01,4.022443e+02},
