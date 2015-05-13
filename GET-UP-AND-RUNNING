@@ -14,7 +14,7 @@ To get this bad boy going, get:
 5.  ./configure
 6.  sudo make install
 7.  sudo cp 61-mcc.rules /etc/udev/rules.d
-8.  sudo /sbin/udevadm control --reload-rules
+8.  sudo /sbin/udevadm control --reload
 9.  cd libhid
 10. sudo apt-get -f install (I have no idea why this works)
 11. wget http://mirrors.kernel.org/ubuntu/pool/universe/libh/libhid/libhid0_0.2.15+20060325-2.2ubuntu1_i386.deb
